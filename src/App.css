@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #2e2e2e;
+  font-size: 2.3rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+}
+
+.container {
+  max-width: 600px;
+  padding: 0 0.5em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.assistant {
+  margin-top: 3em;
+}
+
+.assistant-row {
+  margin-top: 1.6em;
+}
+
+.assistant-el {
+  border: 2px solid blue;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7em 0;
+}
+.square {
+  width: 28%;
+}
+
+.double-square {
+  width: 65%;
+}
+
+.assistant-btn {
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0.15em 0.15em 0.15em rgba(95, 95, 95, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.assistant-btn:focus,
+.assistant-btn:hover {
+  background-color: #3232ff;
+  border: 2px solid #3232ff;
+  box-shadow: 0.1em 0.1em 0.1em rgba(68, 68, 68, 0.2);
+  transform: scale(0.98);
+}
+
+.assistant-btn:focus,
+.assistant-btn:hover:active {
+  box-shadow: 0.07em 0.07em 0.07em rgba(29, 29, 29, 0.2);
+  transform: scale(0.95);
+}
