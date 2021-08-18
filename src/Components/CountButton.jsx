@@ -4,11 +4,15 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "../Contexts/GlobalContext";
 
 export default function CountButton() {
-  const { dispatch } = useContext(GlobalContext);
+  const { dispatch, state } = useContext(GlobalContext);
   return (
     <div
       onClick={() => dispatch({ type: "Count", payload: 1 })}
-      className="square assistant-el assistant-btn"
+      className={
+        state.enabledUI.counter
+          ? "square assistant-el assistant-btn"
+          : "square assistant-el assistant-btn-disabled"
+      }
     >
       <FontAwesomeIcon icon={faPlus} />
     </div>

@@ -17,5 +17,5 @@ export default function useTimer(initTime) {
     }
   }, [timerStarted, time]);
 
-  return { time, toggleTimer, timerStarted };
+  return { time, toggleTimer, timerStarted, setTime };
 }

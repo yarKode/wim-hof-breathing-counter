@@ -3,11 +3,11 @@ import React, { useContext, useEffect } from "react";
 
 import Counter from "./Components/Counter";
 import Timer from "./Components/Timer";
+import Reset from "./Components/Reset";
 import { GlobalContext } from "./Contexts/GlobalContext";
 
 function App() {
-  const { time1, time2, toggleTimer1, state, dispatch } =
-    useContext(GlobalContext);
+  const { time1, time2, state, dispatch } = useContext(GlobalContext);
 
   useEffect(() => {
     dispatch({ type: "StartTimer1", payload: time1 });
@@ -19,9 +19,10 @@ function App() {
 
   return (
     <div className="assistant">
-      <Counter nextBtnHandler={toggleTimer1} type={"timer1"} />
+      <Counter type={"timer1"} />
       <Timer time={state.timer1} type={"timer2"} />
       <Timer time={state.timer2} type={"stopTimer"} />
+      <Reset />
     </div>
   );
 }

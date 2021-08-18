@@ -12,6 +12,7 @@ body {
   font-size: 2.3rem;
   font-weight: 400;
   letter-spacing: 0.15em;
+  user-select: none;
 }
 
 .container {
@@ -24,15 +25,16 @@ body {
 }
 
 .assistant {
-  margin-top: 3em;
+  margin: 3em 0;
 }
 
 .assistant-row {
-  margin-top: 1.6em;
+  margin-top: 1.4em;
 }
 
 .assistant-el {
   border: 2px solid blue;
+  background-color: rgb(243, 243, 243);
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -47,11 +49,24 @@ body {
   width: 65%;
 }
 
+.assistant-el-disabled {
+  border: 2px solid #9e9e9e;
+  color: #9e9e9e;
+  background-color: #e2e2e2;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7em 0;
+  pointer-events: none;
+  cursor: default;
+}
+
 .assistant-btn {
   background-color: blue;
   color: white;
   font-weight: 700;
-  box-shadow: 0.15em 0.15em 0.15em rgba(95, 95, 95, 0.2);
+  box-shadow: 0.12em 0.12em 0.12em rgba(95, 95, 95, 0.2);
   transition: all 0.1s ease-in-out;
 }
 
@@ -63,8 +78,28 @@ body {
   transform: scale(0.99);
 }
 
-.assistant-btn:focus,
-.assistant-btn:hover:active {
+.assistant-btn:active {
   box-shadow: 0.07em 0.07em 0.07em rgba(29, 29, 29, 0.2);
   transform: scale(0.98);
+}
+
+.assistant-btn-disabled {
+  background-color: #9e9e9e;
+  border: 2px solid #9e9e9e;
+  color: white;
+  font-weight: 400;
+  box-shadow: 0.05em 0.05em 0.05em rgba(68, 68, 68, 0.2);
+  pointer-events: none;
+  cursor: default;
+}
+
+.reset-btn {
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+}
+
+.reset-btn span {
+  font-weight: 700;
 }
