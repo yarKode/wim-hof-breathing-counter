@@ -1,37 +1,24 @@
 import "./App.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faPlus } from "@fortawesome/free-solid-svg-icons";
+import React, { useReducer, useContext } from "react";
+
+import Counter from "./Components/Counter";
+import Timer from "./Components/Timer";
+import { GlobalContext } from "./Contexts/GlobalContext";
 
 function App() {
+  const { time1, time2, toggleTimer1, toggleTimer2, state, dispatch } =
+    useContext(GlobalContext);
+
+  console.log(state);
   return (
-    <div class="assistant">
-      <div class="container assistant-row">
-        <div class="square assistant-el">
-          <p>01</p>
-        </div>
-        <div class="square assistant-el assistant-btn">
-          <FontAwesomeIcon icon={faPlus} />
-        </div>
-        <div class="square assistant-el assistant-btn">
-          <FontAwesomeIcon icon={faArrowRight} />
-        </div>
-      </div>
-      <div class="container assistant-row">
-        <div class="double-square assistant-el">
-          <p>01:04</p>
-        </div>
-        <div class="square assistant-el assistant-btn">
-          <FontAwesomeIcon icon={faArrowRight} />
-        </div>
-      </div>
-      <div class="container assistant-row">
-        <div class="double-square assistant-el">
-          <p>00:12</p>
-        </div>
-        <div class="square assistant-el assistant-btn">
-          <FontAwesomeIcon icon={faArrowRight} />
-        </div>
-      </div>
+    <div className="assistant">
+      <Counter nextBtnHandler={toggleTimer1} type={"timer1"} />
+      <Timer
+        time={state.timer1}
+        nextBtnHandler={toggleTimer2}
+        type={"timer2"}
+      />
+      <Timer time={state.timer2} type={"stopTimer"} />
     </div>
   );
 }

@@ -52,7 +52,7 @@ body {
   color: white;
   font-weight: 700;
   box-shadow: 0.15em 0.15em 0.15em rgba(95, 95, 95, 0.2);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .assistant-btn:focus,
@@ -60,11 +60,11 @@ body {
   background-color: #3232ff;
   border: 2px solid #3232ff;
   box-shadow: 0.1em 0.1em 0.1em rgba(68, 68, 68, 0.2);
-  transform: scale(0.98);
+  transform: scale(0.99);
 }
 
 .assistant-btn:focus,
 .assistant-btn:hover:active {
   box-shadow: 0.07em 0.07em 0.07em rgba(29, 29, 29, 0.2);
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
