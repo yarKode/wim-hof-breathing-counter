@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useReducer } from "react";
 
 import useTimer from "../CustomHooks/useTimer";
 
@@ -18,8 +18,16 @@ function reducer(state, action) {
 }
 
 export function ContextProvider({ children }) {
-  const { time: time1, toggleTimer: toggleTimer1 } = useTimer(0);
-  const { time: time2, toggleTimer: toggleTimer2 } = useTimer(0);
+  const {
+    time: time1,
+    toggleTimer: toggleTimer1,
+    timerStarted: timerStarted1,
+  } = useTimer(0);
+  const {
+    time: time2,
+    toggleTimer: toggleTimer2,
+    timerStarted: timerStarted2,
+  } = useTimer(0);
 
   const [state, dispatch] = useReducer(reducer, {
     count: 0,
@@ -27,7 +35,16 @@ export function ContextProvider({ children }) {
     timer2: 2,
   });
 
-  const value = { time1, time2, toggleTimer1, toggleTimer2, state, dispatch };
+  const value = {
+    time1,
+    time2,
+    timerStarted1,
+    timerStarted2,
+    toggleTimer1,
+    toggleTimer2,
+    state,
+    dispatch,
+  };
 
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>

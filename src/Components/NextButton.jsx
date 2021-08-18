@@ -1,27 +1,22 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "../Contexts/GlobalContext";
 
-export default function NextButton({ nextBtnHandler, type }) {
-  const { time1, time2, toggleTimer1, toggleTimer2, dispatch } =
+export default function NextButton({ type }) {
+  const { timerStarted1, toggleTimer1, toggleTimer2 } =
     useContext(GlobalContext);
 
-  useEffect(() => {
-    dispatch({ type: "StartTimer1", payload: time1 });
-  }, [time1]);
-
-  useEffect(() => {
-    dispatch({ type: "StartTimer2", payload: time2 });
-  }, [time2]);
-
   function clickHandler() {
-    console.log(type);
     if (type === "timer1") {
-      nextBtnHandler();
-    } else if (type === "timer2") {
-      nextBtnHandler();
       toggleTimer1();
+    } else if (type === "timer2") {
+      if (timerStarted1) {
+        toggleTimer1();
+        toggleTimer2();
+      } else {
+        toggleTimer2();
+      }
     } else if (type === "stopTimer") {
       toggleTimer2();
     }

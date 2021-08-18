@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { GlobalContext } from "./Contexts/GlobalContext";
 import { ContextProvider } from "./Contexts/GlobalContext";
 import "./index.css";
 import App from "./App";

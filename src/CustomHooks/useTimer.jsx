@@ -1,22 +1,21 @@
-import React, { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 
 export default function useTimer(initTime) {
   const [time, setTime] = useState(initTime);
-  const [startTimer, setStartTimer] = useState(false);
+  const [timerStarted, setStartTimer] = useState(false);
 
   function toggleTimer() {
-    setStartTimer(!startTimer);
+    setStartTimer(!timerStarted);
   }
 
   useLayoutEffect(() => {
-    if (startTimer) {
+    if (timerStarted) {
       const timer = setInterval(() => {
-        console.log(time);
         setTime((prev) => prev + 1);
       }, 1000);
       return () => clearInterval(timer);
     }
-  }, [startTimer, time]);
+  }, [timerStarted, time]);
 
-  return { time, toggleTimer };
+  return { time, toggleTimer, timerStarted };
 }

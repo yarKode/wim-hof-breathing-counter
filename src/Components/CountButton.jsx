@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "../Contexts/GlobalContext";
 
-export default function CountButton({ setCount }) {
+export default function CountButton() {
   const { dispatch } = useContext(GlobalContext);
   return (
     <div
