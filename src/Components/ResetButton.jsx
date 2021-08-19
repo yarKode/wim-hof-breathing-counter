@@ -1,5 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../Contexts/GlobalContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { uiStatus } from "../helpers";
 
 export default function ResetButton({ type }) {
   const {
@@ -14,8 +17,7 @@ export default function ResetButton({ type }) {
   } = useContext(GlobalContext);
 
   useEffect(() => {
-    const arrOfUIStates = Object.entries(enabledUI);
-    const uiDisabled = !arrOfUIStates.map((el) => el[1]).includes(true);
+    const uiDisabled = uiStatus(enabledUI);
 
     if (uiDisabled) dispatch({ type: "ChangeResetBtn", payload: "StartNew" });
   }, [dispatch, enabledUI]);
@@ -41,6 +43,7 @@ export default function ResetButton({ type }) {
           timer2Display: false,
           timer2NextBtn: false,
         },
+        hideButtons: true,
         prompt: "",
         round:
           type === "restart" ? 1 : resetBtn === "Reset" ? round : round + 1,
@@ -54,7 +57,7 @@ export default function ResetButton({ type }) {
         className="square assistant-el assistant-btn reset-btn"
         onClick={reset}
       >
-        <p>X</p>
+        <FontAwesomeIcon icon={faPowerOff} />
       </div>
     );
   }

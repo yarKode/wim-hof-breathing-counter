@@ -20,6 +20,9 @@ function reducer(state, action) {
       return { ...state, ...action.payload };
     case "ChangeResetBtn":
       return { ...state, resetBtn: action.payload };
+    case "HideBtns": {
+      return { ...state, hideButtons: action.payload };
+    }
     default:
       throw Error("Impossible case");
   }
@@ -51,7 +54,8 @@ export function ContextProvider({ children }) {
       timer2Display: false,
       timer2NextBtn: false,
     },
-    resetBtn: "Reset", //'StartNew'
+    resetBtn: "Reset", //'StartNew',
+    hideButtons: false,
     prompt: "",
     round: 1,
   });

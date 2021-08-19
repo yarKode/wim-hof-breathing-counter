@@ -6,10 +6,6 @@ export default function Reset() {
     <div className="container assistant-row">
       <ResetButton type={"reset"} />
       <ResetButton type={"restart"} />
-
-      {/* <div className="square assistant-el assistant-btn">
-        <p>X</p>
-      </div> */}
     </div>
   );
 }

@@ -9,7 +9,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #2e2e2e;
-  font-size: 2.3rem;
+  font-size: 2.2rem;
   font-weight: 400;
   letter-spacing: 0.15em;
   user-select: none;
@@ -29,7 +29,12 @@ body {
 }
 
 .assistant-row {
-  margin-top: 1.4em;
+  margin-top: 1.1em;
+}
+
+.guide-display {
+  font-size: 1.6rem;
+  letter-spacing: 0;
 }
 
 .assistant-el {
@@ -39,7 +44,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.7em 0;
+  padding: 0.5em 0;
 }
 .square {
   width: 28%;
@@ -57,7 +62,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.7em 0;
+  padding: 0.5em 0;
   pointer-events: none;
   cursor: default;
 }

@@ -49,6 +49,10 @@ export default function NextButton({ type }) {
   }
 
   useLayoutEffect(() => {
+    if (state.hideButtons) {
+      setEnabled(false);
+      return;
+    }
     if (type === "timer1" && state.count > MIN_COUNT)
       setEnabled(state.enabledUI.counterNext);
     if (type === "timer2" && state.timer1 > MIN_1ST_PHASE_BREATHE)

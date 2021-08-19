@@ -19,6 +19,12 @@ function App() {
 
   return (
     <div className="assistant">
+      <div className="container assistant-row guide-display">
+        <p>
+          Breathe in, into the belly, into the chest and Breathe out. Like a
+          wave. Tap on + Count each cycle.
+        </p>
+      </div>
       <Counter type={"timer1"} />
       <Timer time={state.timer1} type={"timer2"} />
       <Timer time={state.timer2} type={"stopTimer"} />

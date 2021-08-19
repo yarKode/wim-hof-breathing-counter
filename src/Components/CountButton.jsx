@@ -5,9 +5,15 @@ import { GlobalContext } from "../Contexts/GlobalContext";
 
 export default function CountButton() {
   const { dispatch, state } = useContext(GlobalContext);
+
+  function countClickHandler() {
+    dispatch({ type: "Count", payload: 1 });
+
+    if (state.hideButtons) dispatch({ type: "HideBtns", payload: false });
+  }
   return (
     <div
-      onClick={() => dispatch({ type: "Count", payload: 1 })}
+      onClick={countClickHandler}
       className={
         state.enabledUI.counter
           ? "square assistant-el assistant-btn"
