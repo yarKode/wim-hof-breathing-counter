@@ -1,18 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../Contexts/GlobalContext";
 
 export default function ResetButton({ type }) {
   const {
-    state: { round, timer1, timer2 },
+    state: { round, enabledUI, resetBtn },
     dispatch,
     setTime1,
     setTime2,
+    timerStarted1,
+    timerStarted2,
+    toggleTimer1,
+    toggleTimer2,
   } = useContext(GlobalContext);
 
+  useEffect(() => {
+    const arrOfUIStates = Object.entries(enabledUI);
+    const uiDisabled = !arrOfUIStates.map((el) => el[1]).includes(true);
+
+    if (uiDisabled) dispatch({ type: "ChangeResetBtn", payload: "StartNew" });
+  }, [dispatch, enabledUI]);
+
   function reset() {
-    console.log(setTime1);
     setTime1(0);
     setTime2(0);
+    timerStarted1 && toggleTimer1();
+    timerStarted2 && toggleTimer2();
+
+    dispatch({ type: "ChangeResetBtn", payload: "Reset" });
     dispatch({
       type: "Reset",
       payload: {
@@ -28,23 +42,44 @@ export default function ResetButton({ type }) {
           timer2NextBtn: false,
         },
         prompt: "",
-        round: type === "restart" ? 1 : round,
+        round:
+          type === "restart" ? 1 : resetBtn === "Reset" ? round : round + 1,
       },
     });
   }
 
+  if (type === "restart") {
+    return (
+      <div
+        className="square assistant-el assistant-btn reset-btn"
+        onClick={reset}
+      >
+        <p>X</p>
+      </div>
+    );
+  }
+
+  if (type === "reset" && resetBtn === "StartNew") {
+    return (
+      <div
+        style={{ backgroundColor: "green", border: "2px solid green" }}
+        className="double-square assistant-el assistant-btn reset-btn"
+        onClick={reset}
+      >
+        <p>
+          Start Round #<span>{round + 1}</span>
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div
-      className={
-        type === "restart"
-          ? "square assistant-el assistant-btn reset-btn"
-          : "double-square assistant-el assistant-btn reset-btn"
-      }
+      className="double-square assistant-el assistant-btn reset-btn"
       onClick={reset}
     >
       <p>
-        {type === "restart" ? "X" : "Reset Round"}{" "}
-        {type !== "restart" && <span>#{round}</span>}
+        Reset Round #<span>{round}</span>
       </p>
     </div>
   );

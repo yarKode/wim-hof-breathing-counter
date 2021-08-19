@@ -18,6 +18,8 @@ function reducer(state, action) {
       return { ...state, round: state.round + action.payload };
     case "Reset":
       return { ...state, ...action.payload };
+    case "ChangeResetBtn":
+      return { ...state, resetBtn: action.payload };
     default:
       throw Error("Impossible case");
   }
@@ -49,8 +51,9 @@ export function ContextProvider({ children }) {
       timer2Display: false,
       timer2NextBtn: false,
     },
+    resetBtn: "Reset", //'StartNew'
     prompt: "",
-    round: 2,
+    round: 1,
   });
 
   const value = {
