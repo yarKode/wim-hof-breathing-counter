@@ -9,17 +9,8 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #2e2e2e;
-  font-size: 2.2rem;
   font-weight: 400;
   letter-spacing: 0.15em;
-  user-select: none;
-
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-body::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
 }
 
 .main {
@@ -29,12 +20,15 @@ body::-webkit-scrollbar {
   justify-content: space-between;
 }
 
+p {
+  font-size: 2.2rem;
+}
+
 .container {
   max-width: 600px;
   padding: 0 0.5em;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -50,7 +44,7 @@ body::-webkit-scrollbar {
   font-size: 1.6rem;
   min-height: 5em;
   letter-spacing: 0;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   text-align: center;
   display: flex;
   align-items: center;
@@ -67,6 +61,7 @@ body::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
   padding: 0.5em 0;
+  user-select: none;
 }
 .square {
   width: 28%;
@@ -87,6 +82,7 @@ body::-webkit-scrollbar {
   padding: 0.5em 0;
   pointer-events: none;
   cursor: default;
+  user-select: none;
 }
 
 .assistant-btn {
@@ -95,6 +91,7 @@ body::-webkit-scrollbar {
   font-weight: 700;
   box-shadow: 0.12em 0.12em 0.12em rgba(95, 95, 95, 0.2);
   transition: all 0.1s ease-in-out;
+  user-select: none;
 }
 
 .assistant-btn:focus,
@@ -103,11 +100,13 @@ body::-webkit-scrollbar {
   border: 2px solid #3232ff;
   box-shadow: 0.1em 0.1em 0.1em rgba(68, 68, 68, 0.2);
   transform: scale(0.99);
+  user-select: none;
 }
 
 .assistant-btn:active {
   box-shadow: 0.07em 0.07em 0.07em rgba(29, 29, 29, 0.2);
   transform: scale(0.98);
+  user-select: none;
 }
 
 .assistant-btn-disabled {
@@ -118,6 +117,7 @@ body::-webkit-scrollbar {
   box-shadow: 0.05em 0.05em 0.05em rgba(68, 68, 68, 0.2);
   pointer-events: none;
   cursor: default;
+  user-select: none;
 }
 
 .reset-btn {
@@ -141,9 +141,6 @@ body::-webkit-scrollbar {
   max-height: 340px;
 }
 
-.active {
-  background: red;
-}
 header {
   box-shadow: 0.05rem 0.05rem 0.1rem rgb(18, 19, 54);
   display: flex;

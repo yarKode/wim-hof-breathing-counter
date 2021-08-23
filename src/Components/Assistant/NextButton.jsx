@@ -1,12 +1,12 @@
 import React, { useContext, useLayoutEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { GlobalContext } from "../Contexts/GlobalContext";
+import { GlobalContext } from "../../Contexts/GlobalContext";
 import {
   MIN_1ST_PHASE_BREATHE,
   MIN_2ND_PHASE_BREATHE,
   MIN_COUNT,
-} from "../settings";
+} from "../../settings";
 
 export default function NextButton({ type }) {
   const { timerStarted1, toggleTimer1, toggleTimer2, state, dispatch } =
@@ -53,8 +53,10 @@ export default function NextButton({ type }) {
       setEnabled(false);
       return;
     }
-    if (type === "timer1" && state.count > MIN_COUNT)
+    if (type === "timer1" && state.count > MIN_COUNT) {
       setEnabled(state.enabledUI.counterNext);
+    }
+
     if (type === "timer2" && state.timer1 > MIN_1ST_PHASE_BREATHE)
       setEnabled(state.enabledUI.timer1NextBtn);
     if (type === "stopTimer" && state.timer2 > MIN_2ND_PHASE_BREATHE)
@@ -62,6 +64,7 @@ export default function NextButton({ type }) {
   }, [state, dispatch, type]);
 
   function clickHandler() {
+    dispatch({ type: "NextPhase", payload: 1 });
     if (type === "timer1") {
       toggleTimer1();
       enable1TimerUI();

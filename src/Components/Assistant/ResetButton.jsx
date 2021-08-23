@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import { GlobalContext } from "../Contexts/GlobalContext";
+import { GlobalContext } from "../../Contexts/GlobalContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
-import { uiStatus } from "../helpers";
+import { uiStatus } from "../../helpers";
 
 export default function ResetButton({ type }) {
   const {
@@ -45,6 +45,7 @@ export default function ResetButton({ type }) {
         },
         hideButtons: true,
         prompt: "",
+        phase: 0,
         round:
           type === "restart" ? 1 : resetBtn === "Reset" ? round : round + 1,
       },

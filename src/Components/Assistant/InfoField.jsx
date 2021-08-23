@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "../Contexts/GlobalContext";
+import { GlobalContext } from "../../Contexts/GlobalContext";
 
 function InfoField({ displayCount }) {
   const { state } = useContext(GlobalContext);

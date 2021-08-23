@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import TimerFiled from "./TimerFiled";
 import NextButton from "./NextButton";
-import { GlobalContext } from "../Contexts/GlobalContext";
+import { GlobalContext } from "../../Contexts/GlobalContext";
 
 export default function Timer({ time, type }) {
   const { state } = useContext(GlobalContext);
