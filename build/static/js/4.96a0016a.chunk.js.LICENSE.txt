@@ -1,0 +1,6 @@
+/**
+ * @name isEmailMaybe
+ * @license MIT
+ * @copyright (c) 2016 Kent C. Dodds
+ * @author Kent C. Dodds <kent@doddsfamily.us> (kentcdodds.com)
+ */

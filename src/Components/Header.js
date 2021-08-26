@@ -1,12 +1,14 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <header>
       <div className="menu">
         <div className="logo">
-          <p>WH Breathing Assist</p>
+          <Link to="/">
+            <p>WH Breathing Assist</p>
+          </Link>
         </div>
         <nav>
           <div className="hamburger">
