@@ -24,7 +24,7 @@ export default function ResetButton({ type }) {
     if (uiDisabled) dispatch({ type: "ChangeResetBtn", payload: "StartNew" });
   }, [dispatch, enabledUI]);
 
-  function reset() {
+  function resetUI() {
     setTime1(0);
     setTime2(0);
     timerStarted1 && toggleTimer1();
@@ -43,7 +43,7 @@ export default function ResetButton({ type }) {
 
   if (type === "restart") {
     return (
-      <div className="assistant-btn reset-btn" onClick={reset}>
+      <div className="assistant-btn reset-btn" onClick={resetUI}>
         <FontAwesomeIcon icon={faPowerOff} />
       </div>
     );
@@ -54,7 +54,7 @@ export default function ResetButton({ type }) {
       <div
         style={{ backgroundColor: "#3c6204" }}
         className="double-square assistant-el assistant-btn reset-btn"
-        onClick={reset}
+        onClick={resetUI}
       >
         <p>
           Start Round #<span>{round + 1}</span>
@@ -66,7 +66,7 @@ export default function ResetButton({ type }) {
   return (
     <div
       className="double-square assistant-el assistant-btn reset-btn"
-      onClick={reset}
+      onClick={resetUI}
     >
       <p>
         Reset Round #<span>{round}</span>
