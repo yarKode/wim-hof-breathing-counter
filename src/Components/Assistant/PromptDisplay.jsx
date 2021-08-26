@@ -8,7 +8,7 @@ export default function PromptDisplay() {
   } = useContext(GlobalContext);
 
   return (
-    <div className="container assistant-row guide-display">
+    <div className="assistant-row guide-display">
       <p>{PROMPTS[phase]}</p>
     </div>
   );

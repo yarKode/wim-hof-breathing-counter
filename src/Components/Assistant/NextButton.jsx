@@ -14,26 +14,16 @@ export default function NextButton({ type }) {
 
   const [enabled, setEnabled] = useState(false);
 
-  function enable1TimerUI() {
+  function enableTimerUI(timerNumber) {
     dispatch({
       type: "ChangeUI",
       payload: {
         counter: false,
         counterNext: false,
-        timer1Display: true,
-        timer1NextBtn: true,
-      },
-    });
-  }
-
-  function enable2TimerUI() {
-    dispatch({
-      type: "ChangeUI",
-      payload: {
-        timer1Display: false,
-        timer1NextBtn: false,
-        timer2Display: true,
-        timer2NextBtn: true,
+        timer1Display: timerNumber === 1 ? true : false,
+        timer1NextBtn: timerNumber === 1 ? true : false,
+        timer2Display: timerNumber === 1 ? false : true,
+        timer2NextBtn: timerNumber === 1 ? false : true,
       },
     });
   }
@@ -67,15 +57,11 @@ export default function NextButton({ type }) {
     dispatch({ type: "NextPhase", payload: 1 });
     if (type === "timer1") {
       toggleTimer1();
-      enable1TimerUI();
+      enableTimerUI(1);
     } else if (type === "timer2") {
-      if (timerStarted1) {
-        toggleTimer1();
-        toggleTimer2();
-      } else {
-        toggleTimer2();
-      }
-      enable2TimerUI();
+      if (timerStarted1) toggleTimer1();
+      toggleTimer2();
+      enableTimerUI(2);
     } else if (type === "stopTimer") {
       toggleTimer2();
       disableAllUI();
@@ -83,15 +69,11 @@ export default function NextButton({ type }) {
   }
 
   return (
-    <div
-      className={
-        enabled
-          ? "square assistant-el assistant-btn"
-          : "square assistant-el assistant-btn-disabled"
-      }
+    <button
+      className={enabled ? "assistant-btn" : "assistant-btn-disabled"}
       onClick={() => clickHandler()}
     >
       <FontAwesomeIcon icon={faArrowRight} />
-    </div>
+    </button>
   );
 }

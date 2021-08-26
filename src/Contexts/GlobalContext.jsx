@@ -1,5 +1,7 @@
 import React, { useReducer } from "react";
 
+import { INIT_STATE } from "./../settings";
+
 import useTimer from "../CustomHooks/useTimer";
 
 export const GlobalContext = React.createContext();
@@ -44,24 +46,7 @@ export function ContextProvider({ children }) {
     setTime: setTime2,
   } = useTimer(0);
 
-  const [state, dispatch] = useReducer(reducer, {
-    count: 0,
-    timer1: 0,
-    timer2: 0,
-    enabledUI: {
-      counter: true,
-      counterNext: true,
-      timer1Display: false,
-      timer1NextBtn: false,
-      timer2Display: false,
-      timer2NextBtn: false,
-    },
-    resetBtn: "Reset", //'StartNew',
-    hideButtons: false,
-    phase: 0,
-    prompt: "",
-    round: 1,
-  });
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const value = {
     time1,

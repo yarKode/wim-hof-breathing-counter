@@ -15,8 +15,8 @@ export default function CountButton() {
       onClick={countClickHandler}
       className={
         state.enabledUI.counter
-          ? "square assistant-el assistant-btn"
-          : "square assistant-el assistant-btn-disabled"
+          ? "assistant-el assistant-btn"
+          : "assistant-el assistant-btn-disabled"
       }
     >
       <FontAwesomeIcon icon={faPlus} />

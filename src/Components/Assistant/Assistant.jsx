@@ -18,8 +18,7 @@ export default function Assistant() {
   }, [dispatch, time2]);
 
   return (
-    <div className="assistant">
-      {/* <YoutubeEmbed embedId="nzCaZQqAs9I" /> */}
+    <div className="page-container">
       <PromptDisplay />
       <Counter type={"timer1"} />
       <Timer time={state.timer1} type={"timer2"} />

@@ -8,7 +8,7 @@ export default function Counter({ type }) {
   const { state } = useContext(GlobalContext);
 
   return (
-    <div className="container assistant-row">
+    <div className="assistant-row">
       <InfoField displayCount={state.count} />
       <CountButton />
       <NextButton type={type} />

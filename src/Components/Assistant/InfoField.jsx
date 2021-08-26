@@ -6,9 +6,7 @@ function InfoField({ displayCount }) {
   return (
     <div
       className={
-        state.enabledUI.counter
-          ? "square assistant-el"
-          : "square assistant-el-disabled"
+        state.enabledUI.counter ? "assistant-el" : "assistant-el-disabled"
       }
     >
       <p>{displayCount < 10 ? `0${displayCount}` : `${displayCount}`}</p>

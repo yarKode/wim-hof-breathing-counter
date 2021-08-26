@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { uiStatus } from "../../helpers";
 
+import { INIT_STATE } from "../../settings";
+
 export default function ResetButton({ type }) {
   const {
     state: { round, enabledUI, resetBtn },
@@ -28,24 +30,11 @@ export default function ResetButton({ type }) {
     timerStarted1 && toggleTimer1();
     timerStarted2 && toggleTimer2();
 
-    dispatch({ type: "ChangeResetBtn", payload: "Reset" });
     dispatch({
       type: "Reset",
       payload: {
-        count: 0,
-        timer1: 0,
-        timer2: 0,
-        enabledUI: {
-          counter: true,
-          counterNext: true,
-          timer1Display: false,
-          timer1NextBtn: false,
-          timer2Display: false,
-          timer2NextBtn: false,
-        },
+        ...INIT_STATE,
         hideButtons: true,
-        prompt: "",
-        phase: 0,
         round:
           type === "restart" ? 1 : resetBtn === "Reset" ? round : round + 1,
       },
@@ -54,10 +43,7 @@ export default function ResetButton({ type }) {
 
   if (type === "restart") {
     return (
-      <div
-        className="square assistant-el assistant-btn reset-btn"
-        onClick={reset}
-      >
+      <div className="assistant-btn reset-btn" onClick={reset}>
         <FontAwesomeIcon icon={faPowerOff} />
       </div>
     );
@@ -66,7 +52,7 @@ export default function ResetButton({ type }) {
   if (type === "reset" && resetBtn === "StartNew") {
     return (
       <div
-        style={{ backgroundColor: "green", border: "2px solid green" }}
+        style={{ backgroundColor: "#3c6204" }}
         className="double-square assistant-el assistant-btn reset-btn"
         onClick={reset}
       >

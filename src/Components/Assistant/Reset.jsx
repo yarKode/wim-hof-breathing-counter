@@ -3,7 +3,7 @@ import ResetButton from "./ResetButton";
 
 export default function Reset() {
   return (
-    <div className="container assistant-row">
+    <div className="assistant-row">
       <ResetButton type={"reset"} />
       <ResetButton type={"restart"} />
     </div>
