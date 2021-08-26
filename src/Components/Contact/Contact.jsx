@@ -30,7 +30,7 @@ export default function Contact() {
     if (name === "user_message")
       setFormData((prev) => ({ ...prev, msg: value }));
   }
-
+  console.log(process.env);
   function submitHandler(e) {
     if (!e) return;
     e.preventDefault();
@@ -59,7 +59,12 @@ export default function Contact() {
 
     //Send Data Using Email !! Check original docs
     setFormStatus("proccessing");
-    send("", "", toSend, "")
+    send(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      toSend,
+      process.env.REACT_APP_EMAILJS_USER_ID
+    )
       .then((response) => {
         setFormStatus("succes");
       })
@@ -76,8 +81,6 @@ export default function Contact() {
       err: "",
     }));
   }
-
-  console.log(formStatus);
 
   if (formStatus === "succes") {
     return (
