@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../Contexts/GlobalContext";
 
-function InfoField({ displayCount }) {
+export default function InfoField({ displayCount }) {
   const { state } = useContext(GlobalContext);
   return (
     <div
@@ -13,5 +13,3 @@ function InfoField({ displayCount }) {
     </div>
   );
 }
-
-export default InfoField;

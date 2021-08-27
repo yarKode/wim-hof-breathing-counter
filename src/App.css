@@ -505,6 +505,14 @@ footer {
 /*================ MOBILE VERSION =================*/
 
 @media (max-width: 700px) {
+  .menu {
+    padding: 0;
+  }
+
+  .logo {
+    margin: 0 1.6em;
+    padding: 0.6em;
+  }
   nav {
     min-width: 0;
     display: flex;
@@ -513,10 +521,19 @@ footer {
 
   .hamburger {
     display: flex;
+    padding: 0 1em;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 60px;
+    height: 100%;
+  }
+
+  .hamburger:hover {
+    background-color: #696cf0;
+  }
+
+  .hamb-line-hovered {
+    background-color: #fff;
   }
 
   .nav-list {
@@ -533,4 +550,15 @@ footer {
     margin-top: 2em;
     min-width: 80%;
   }
+}
+
+@media (max-width: 360px) {
+  .logo {
+    margin: 0 1.6em;
+    padding: 0;
+  }
+}
+
+.active {
+  background: #9193fa;
 }

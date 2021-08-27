@@ -3,7 +3,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 
 import Home from "./Components/Home/Home";
-import Header from "./Components/Header";
+import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer";
 
 const Assistant = React.lazy(() => import("./Components/Assistant/Assistant"));

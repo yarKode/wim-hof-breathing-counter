@@ -1,7 +1,7 @@
 import React from "react";
 import ResetButton from "./ResetButton";
 
-export default function Reset() {
+function Reset() {
   return (
     <div className="assistant-row">
       <ResetButton type={"reset"} />
@@ -9,3 +9,5 @@ export default function Reset() {
     </div>
   );
 }
+
+export default Reset = React.memo(Reset);

@@ -1,4 +1,9 @@
-import React, { useContext, useLayoutEffect, useState } from "react";
+import React, {
+  useContext,
+  useLayoutEffect,
+  useState,
+  useCallback,
+} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { GlobalContext } from "../../Contexts/GlobalContext";
@@ -12,23 +17,26 @@ export default function NextButton({ type }) {
   const { timerStarted1, toggleTimer1, toggleTimer2, state, dispatch } =
     useContext(GlobalContext);
 
-  const [enabled, setEnabled] = useState(false);
+  const [enabled, setEnabled] = useState(() => false);
 
-  function enableTimerUI(timerNumber) {
-    dispatch({
-      type: "ChangeUI",
-      payload: {
-        counter: false,
-        counterNext: false,
-        timer1Display: timerNumber === 1 ? true : false,
-        timer1NextBtn: timerNumber === 1 ? true : false,
-        timer2Display: timerNumber === 1 ? false : true,
-        timer2NextBtn: timerNumber === 1 ? false : true,
-      },
-    });
-  }
+  const enableTimerUI = useCallback(
+    (timerNumber) => {
+      dispatch({
+        type: "ChangeUI",
+        payload: {
+          counter: false,
+          counterNext: false,
+          timer1Display: timerNumber === 1 ? true : false,
+          timer1NextBtn: timerNumber === 1 ? true : false,
+          timer2Display: timerNumber === 1 ? false : true,
+          timer2NextBtn: timerNumber === 1 ? false : true,
+        },
+      });
+    },
+    [dispatch]
+  );
 
-  function disableAllUI() {
+  const disableAllUI = useCallback(() => {
     dispatch({
       type: "ChangeUI",
       payload: {
@@ -36,6 +44,21 @@ export default function NextButton({ type }) {
         timer2NextBtn: false,
       },
     });
+  }, [dispatch]);
+
+  function clickHandler() {
+    dispatch({ type: "NextPhase", payload: 1 });
+    if (type === "timer1") {
+      toggleTimer1();
+      enableTimerUI(1);
+    } else if (type === "timer2") {
+      if (timerStarted1) toggleTimer1();
+      toggleTimer2();
+      enableTimerUI(2);
+    } else if (type === "stopTimer") {
+      toggleTimer2();
+      disableAllUI();
+    }
   }
 
   useLayoutEffect(() => {
@@ -52,21 +75,6 @@ export default function NextButton({ type }) {
     if (type === "stopTimer" && state.timer2 > MIN_2ND_PHASE_BREATHE)
       setEnabled(state.enabledUI.timer2NextBtn);
   }, [state, dispatch, type]);
-
-  function clickHandler() {
-    dispatch({ type: "NextPhase", payload: 1 });
-    if (type === "timer1") {
-      toggleTimer1();
-      enableTimerUI(1);
-    } else if (type === "timer2") {
-      if (timerStarted1) toggleTimer1();
-      toggleTimer2();
-      enableTimerUI(2);
-    } else if (type === "stopTimer") {
-      toggleTimer2();
-      disableAllUI();
-    }
-  }
 
   return (
     <button

@@ -10,14 +10,14 @@ import isEmailMaybe from "is-email-maybe";
 import Spinner from "../Spinner";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState(() => ({
     name: "Slavik",
     email: "slavik.buravik@gmail..ccom",
     msg: "",
     err: "",
-  });
+  }));
 
-  const [formStatus, setFormStatus] = useState("idle");
+  const [formStatus, setFormStatus] = useState(() => "idle");
 
   function valueChangeHandler({ target: { name, value } }) {
     setFormData((prev) => ({

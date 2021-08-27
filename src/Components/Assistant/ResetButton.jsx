@@ -6,7 +6,7 @@ import { uiStatus } from "../../helpers";
 
 import { INIT_STATE } from "../../settings";
 
-export default function ResetButton({ type }) {
+function ResetButton({ type }) {
   const {
     state: { round, enabledUI, resetBtn },
     dispatch,
@@ -74,3 +74,5 @@ export default function ResetButton({ type }) {
     </div>
   );
 }
+
+export default ResetButton = React.memo(ResetButton);
