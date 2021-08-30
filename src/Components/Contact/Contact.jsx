@@ -11,8 +11,8 @@ import Spinner from "../Spinner";
 
 export default function Contact() {
   const [formData, setFormData] = useState(() => ({
-    name: "Slavik",
-    email: "slavik.buravik@gmail..ccom",
+    name: "",
+    email: "",
     msg: "",
     err: "",
   }));

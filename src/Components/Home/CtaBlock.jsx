@@ -12,7 +12,7 @@ export default function CtaBlock() {
         </NavLink>
       </div>
       <div className="hero-cta">
-        <h3>Watch a Quick Guide</h3>
+        <h3>Discover how method works </h3>
         <NavLink to="/video" className="link-btn">
           Watch Video
         </NavLink>

@@ -1,10 +1,11 @@
 import React from "react";
+import { TITLES } from "../../settings";
 
-export default function HeroTitles({ title, subtitle }) {
+export default function HeroTitles() {
   return (
     <div className="hero-titles">
-      <h1>{title}</h1>
-      <h2>{subtitle}</h2>
+      <h1>{TITLES.title}</h1>
+      <h2>{TITLES.subtitle}</h2>
     </div>
   );
 }

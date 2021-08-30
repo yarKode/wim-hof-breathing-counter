@@ -4,15 +4,15 @@ export const MIN_2ND_PHASE_BREATHE = 3;
 
 export const PROMPTS = [
   `🧘 Breathe In and Breathe Out. Tap on '+' each cycle. When ready to finish - make last one deep Breathe In, Stop on Exhale and tap Next`,
-  `⏳ Hold for 1 minute at leat and until you feel the urge to breathe. When you are ready - Fully In, Hold and tap Next`,
+  `⏳ Hold for 1 minute at least and until you feel the urge to breathe. When you are ready - Fully In, Hold and tap Next`,
   `⏱ Hold 10-15 seconds. No more needed. When finish - Exhale and tap Next`,
   `🎉Well Done! Round finished 🏁. To start new one - tap on Start Round below 💪`,
 ];
 
 export const TITLES = {
-  title: "Wim Hof's Breathing Assistant",
+  title: "Wim Hof's Guided Breathing Assistant",
   subtitle:
-    "Count Your Breath Cycles, Time while Holding Breath and Rounds at one place.",
+    "Count Your Breathing Cycles, Time between Steps and Rounds at one place.",
 };
 
 export const INIT_STATE = {

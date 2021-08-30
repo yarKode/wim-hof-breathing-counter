@@ -56,6 +56,7 @@ h2 {
 h3 {
   font-size: 1.4rem;
   font-weight: 400;
+  text-align: center;
 }
 
 header a {
@@ -260,11 +261,18 @@ header {
 .mobile-menu-list {
   display: none;
 }
+
 .logo {
   max-width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.logo img {
+  width: 170px;
+  height: 50px;
+  object-fit: cover;
 }
 
 .logo a {
@@ -375,6 +383,7 @@ footer {
   font-size: 1.2rem;
   padding: 0.3em;
   border: 1px solid #9e9e9e;
+  background-color: #f4f4fa;
   border-radius: 5px;
 }
 
@@ -422,8 +431,25 @@ footer {
   font-size: 1.2rem;
 }
 
-.contacts-placeholder p {
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  /*   align-items: center; */
+  margin-top: 2em;
+}
+
+.contact-container svg {
+  width: 20%;
+}
+.contact-container p {
+  width: 75%;
+  /*   margin-left: 1em; */
+}
+
+.contacts-placeholder a {
   margin-bottom: 2rem;
+  color: #696cf0;
+  text-decoration: none;
 }
 
 /*============ VIDEO GUIDE ============*/
@@ -450,10 +476,18 @@ footer {
   justify-content: space-between;
 }
 
+.steps-header {
+  margin-top: 1.6em;
+  font-size: 1.6rem;
+}
+
 .guide-block-item {
   margin-top: 2rem;
+  padding: 0.8em;
   width: 30%;
   display: flex;
+  background-color: #ddddf0;
+  border-radius: 5px;
   flex-direction: column;
 }
 
@@ -462,7 +496,10 @@ footer {
   font-size: 5rem;
   color: #9193fa;
 }
-
+.step-number {
+  font-size: 5rem;
+  font-weight: 900;
+}
 .guide-block-item-desc {
   margin-top: 0.8em;
   font-size: 1.2rem;
@@ -582,7 +619,7 @@ footer {
   }
 
   .guide-block-item {
-    width: 45%;
+    width: 48%;
   }
 
   .hero-cta-block {

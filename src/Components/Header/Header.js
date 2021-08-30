@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import logo from "./breathing-assistant.png";
 
 import Humburger from "./Hamburger";
 import MobileMenu from "./MobileMenu";
@@ -8,7 +9,6 @@ export default function Header() {
   const [mobMenu, setMobMenu] = useState(() => false);
 
   function toggleMobMenu() {
-    console.log("should toggle");
     setMobMenu(!mobMenu);
   }
 
@@ -17,7 +17,7 @@ export default function Header() {
       <div className="menu">
         <div className="logo">
           <Link to="/">
-            <p>WH Breathing</p>
+            <img src={logo} alt="logo" />
           </Link>
         </div>
         <nav>
