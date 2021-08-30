@@ -21,10 +21,10 @@ export default function Header() {
           </Link>
         </div>
         <nav>
-          {mobMenu && <MobileMenu />}
+          {mobMenu && <MobileMenu mob={true} toggleMobMenu={toggleMobMenu} />}
           <Humburger toggleMobMenu={toggleMobMenu} />
 
-          <MobileMenu mob={true} />
+          <MobileMenu mob={false} />
         </nav>
       </div>
     </header>

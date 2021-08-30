@@ -170,8 +170,8 @@ header a {
 
 .assistant-btn:focus,
 .assistant-btn:hover,
-.link-btn:focus,
-.link-btn:hover {
+.link-btn:hover
+/* .link-btn:focus */ {
   background-color: #5f61f0;
   box-shadow: 0.09em 0.09em 0.09em rgba(68, 68, 68, 0.2);
   transform: scale(0.99);
@@ -239,14 +239,16 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 4rem;
   justify-content: space-between;
+  align-items: center;
   z-index: 998;
 }
 
 .menu {
   width: 100%;
   height: 100%;
-  padding: 0 3rem;
+  padding: 0 2em;
   display: flex;
   justify-content: space-between;
 }
@@ -255,6 +257,9 @@ header {
   background: #9193fa;
 }
 
+.mobile-menu-list {
+  display: none;
+}
 .logo {
   max-width: 30%;
   display: flex;
@@ -299,12 +304,12 @@ nav ul a {
   color: #2e2e2e;
   width: 100%;
   height: 100%;
-  padding: 1em 1em;
+  padding: 1.1em 1.3em;
   transition: ease-in-out 0.2s;
 }
 
-nav ul a:hover,
-nav ul a:focus {
+nav ul a:hover
+/* nav ul a:focus */ {
   background-color: #696cf0;
   color: #fff;
 }
@@ -316,7 +321,7 @@ nav ul a:focus {
 .hamb-line {
   width: 60px;
   height: 3px;
-  background-color: #3232ff;
+  background-color: #2e2e2e;
 }
 
 /* ========= FOOTER ========= */
@@ -412,6 +417,7 @@ footer {
 }
 
 .contacts-placeholder {
+  margin-top: 2em;
   width: 30%;
   font-size: 1.2rem;
 }
@@ -525,7 +531,8 @@ footer {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 100%;
+    align-self: stretch;
+    min-height: 3em;
   }
 
   .hamburger:hover {
@@ -540,6 +547,44 @@ footer {
     display: none;
   }
 
+  .mobile-menu-list {
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 50vh;
+    background-color: #fff;
+    justify-content: center;
+    box-shadow: 0.12em 0.12em 0.12em rgba(95, 95, 95, 0.2);
+  }
+
+  .mobile-menu-list li {
+    width: 100%;
+    height: auto;
+    flex-grow: 0;
+    background-color: #fff;
+  }
+
+  .contact-block {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vertical-spread-line {
+    display: none;
+  }
+
+  .video-responsive iframe {
+    width: 90%;
+  }
+
+  .guide-block-item {
+    width: 45%;
+  }
+
   .hero-cta-block {
     flex-direction: column;
     margin-top: 1em;
@@ -550,15 +595,4 @@ footer {
     margin-top: 2em;
     min-width: 80%;
   }
-}
-
-@media (max-width: 360px) {
-  .logo {
-    margin: 0 1.6em;
-    padding: 0;
-  }
-}
-
-.active {
-  background: #9193fa;
 }
